@@ -1,4 +1,3 @@
-# Author: Pranav Raja
 #imports
 import math
 import random
@@ -34,7 +33,6 @@ class BotCommands:
                             "You will be salty sugar"]
         answerforeightball = random.choice(eightballnumbers)
         await ctx.send(answerforeightball)
-        print('I found the command')
 
     @bot.command()
     async def whosalty(ctx):
@@ -120,25 +118,6 @@ class BotCommands:
         arg2 = float(arg2)
         await ctx.send(arg1 - arg2)
 
-    @math.command()
-    async def geometryfacts(ctx, arg1, *args):
-        await ctx.send('{} : {} '.format(arg1, ' '.join(args)))
-
-    @bot.group()
-    async def geofacts(ctx):
-        if ctx.invoked_subcommand is None:
-            await ctx.send('Please enter a command after $geofacts, refer to $help geofacts if needed')
-
-    @geofacts.command()
-    async def addfacts(ctx, args):
-        test1, test2 = args.split(",")
-        await ctx.send('Added Word - {} : Added Definition - {} '.format(test1, test2))
-        geodiction = {}
-        print("Test 1 ", test1)
-        print("Test 2 ", test2)
-        for i in [test1]:
-            geodiction[i] = eval(test2)
-            await ctx.send(geodiction)
 
     @math.command()
     async def div(ctx, arg1, arg2):
@@ -290,7 +269,7 @@ class BotCommands:
                        "pageSize": "7", "autoCorrect": "true"}
 
         headers = {
-            'x-rapidapi-key': "998a3437bdmshca45d523e5bd524p1ab9f7jsnc47fb6c3852f",
+            'x-rapidapi-key': "TOKEN",
             'x-rapidapi-host': "contextualwebsearch-websearch-v1.p.rapidapi.com"
         }
 
@@ -331,13 +310,6 @@ class BotCommands:
             if arg in siteDictionary:
                 await ctx.send('<' + siteDictionary[arg] + '>')
 
-        @links.command()
-        async def add(ctx, arg1, arg2):
-            arg1, arg2 = arg1.lower(), arg2.lower()
-
-
-
-
     @bot.command()
     async def add(ctx, arg1, arg2, arg3):
         List1 = [arg1, arg2, arg3]
@@ -370,7 +342,7 @@ class events:
             for i in emojipeople:
                 if i in messageContent.split():
                     await message.add_reaction(emojipeople[i])
-            badwords = ['stupid', 'idiot', 'moron', 'retard', 'fifield', 'hate', 'k-drama', 'gifted', 'kumon', ]
+            badwords = ['stupid', 'idiot', 'moron', 'retard', 'fifield', 'hate', 'k-drama', 'gifted', 'kumon' ]
             for i in badwords:
                 if i in messageContent.split():
                     await message.delete()
